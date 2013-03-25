@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["kunio038@gmail.com"]
   spec.description   = %q{A game and library of Rock Paper Scissors}
   spec.summary       = %q{Rock Paper Scissors}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/zakuni/Boy2Man"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)

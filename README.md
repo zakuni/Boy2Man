@@ -1,6 +1,7 @@
 # Boy2Man
 
-TODO: Write a gem description
+『ジャンケン』は確率ではない
+勝ちたいと願う『心の力』だ
 
 ## Installation
 
@@ -16,9 +17,10 @@ Or install it yourself as:
 
     $ gem install Boy2Man
 
-## Usage
+## Rule
 
-TODO: Write usage instructions here
+あと出しはその場で負け！
+あいこは決着がつくまで勝負し続けるんだッ！
 
 ## Contributing
 
