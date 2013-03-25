@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Boy2Man::VERSION
   spec.authors       = ["zakuni"]
   spec.email         = ["kunio038@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{A game and library of Rock Paper Scissors}
+  spec.summary       = %q{Rock Paper Scissors}
   spec.homepage      = ""
   spec.license       = "MIT"
 
