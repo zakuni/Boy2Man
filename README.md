@@ -1,6 +1,6 @@
 # Boy2Man
 
-『ジャンケン』は確率ではない
+『ジャンケン』は確率ではない  
 勝ちたいと願う『心の力』だ
 
 ## Installation
@@ -19,7 +19,7 @@ Or install it yourself as:
 
 ## Rule
 
-あと出しはその場で負け！
+あと出しはその場で負け！  
 あいこは決着がつくまで勝負し続けるんだッ！
 
 ## Contributing
