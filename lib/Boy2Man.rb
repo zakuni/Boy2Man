@@ -6,7 +6,18 @@ module Boy2Man
   
   def self.play
     stand = Boy2Man.new
-    puts stand.select_hand while gets != "\n" 
+    loop do
+      print '> '
+      hand = gets
+      case hand
+      when "\n", "bye\n", "exit\n"
+        exit
+      when "グー", "チョキ", "パー"
+        puts stand.select_hand
+      else
+        puts stand.select_hand
+      end
+    end
   end
   
   class Boy2Man
