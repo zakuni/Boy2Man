@@ -12,8 +12,9 @@ module Boy2Man
       case hand
       when "\n", "bye\n", "exit\n"
         exit
-      when "グー", "チョキ", "パー"
+      when "グー\n", "チョキ\n", "パー\n"
         puts stand.select_hand
+        stand.prospect.push hand.chomp
       else
         puts stand.select_hand
       end
@@ -21,8 +22,14 @@ module Boy2Man
   end
   
   class Boy2Man
+    attr_accessor :prospect
+
+    def initialize
+      @prospect = %w(グー チョキ パー)
+    end
+    
     def select_hand
-      %w(グー チョキ パー).sample
+      @prospect.sample
     end
   end
 end
