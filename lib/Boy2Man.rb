@@ -29,6 +29,15 @@ module Boy2Man
     end
     
     def select_hand
+      case predict
+      when "グー"   then "パー"
+      when "チョキ" then "グー"
+      when "パー"   then "チョキ"
+      end
+    end
+
+    private
+    def predict
       @prospect.sample
     end
   end
