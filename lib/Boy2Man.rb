@@ -13,8 +13,7 @@ module Boy2Man
       when "\n", "bye\n", "exit\n"
         exit
       when "グー\n", "チョキ\n", "パー\n"
-        puts stand.select_hand
-        stand.prospect.push hand.chomp
+        puts stand.match(hand.chomp)
       else
         puts stand.select_hand
       end
@@ -22,10 +21,19 @@ module Boy2Man
   end
   
   class Boy2Man
-    attr_accessor :prospect
-
     def initialize
       @prospect = %w(グー チョキ パー)
+    end
+    
+    def match(hand)
+      case hand
+      when "グー", "チョキ", "パー"
+        # 先に手を決めておかないと後出しになる
+        selected = select_hand
+        @prospect.push hand
+        selected
+      else
+      end
     end
     
     def select_hand
