@@ -20,5 +20,11 @@ class TestBoy2Man < MiniTest::Unit::TestCase
     assert_raises(NoMethodError) {
       @stand.history = ['something']
     }
+
+    assert_equal(["グー", "チョキ", "パー"], @stand.history)
+    @stand.match("グー")
+    assert_equal(["グー", "チョキ", "パー", "グー"], @stand.history)
+    @stand.match("チョキ")
+    assert_equal(["グー", "チョキ", "パー", "グー", "チョキ"], @stand.history)
   end
 end
