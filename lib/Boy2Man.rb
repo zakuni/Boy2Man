@@ -14,6 +14,8 @@ module Boy2Man
         exit
       when "グー\n", "チョキ\n", "パー\n"
         puts stand.match(hand.chomp)
+      when "history\n"
+        puts stand.history
       else
         puts stand.select_hand
       end
