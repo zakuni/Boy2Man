@@ -26,7 +26,7 @@ module Boy2Man
     attr_reader :history
     
     def initialize
-      @history = %w(グー チョキ パー)
+      @history = Array.new
     end
 
     def history
@@ -55,7 +55,7 @@ module Boy2Man
 
     private
     def predict
-      @history.sample
+      @history.empty? ? %w(グー チョキ パー).sample : @history.sample
     end
   end
 end

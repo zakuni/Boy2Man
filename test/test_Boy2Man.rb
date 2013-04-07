@@ -21,10 +21,10 @@ class TestBoy2Man < MiniTest::Unit::TestCase
       @stand.history = ['something']
     }
 
-    assert_equal(["グー", "チョキ", "パー"], @stand.history)
+    assert_equal([], @stand.history)
     @stand.match("グー")
-    assert_equal(["グー", "チョキ", "パー", "グー"], @stand.history)
+    assert_equal(["グー"], @stand.history)
     @stand.match("チョキ")
-    assert_equal(["グー", "チョキ", "パー", "グー", "チョキ"], @stand.history)
+    assert_equal(["グー", "チョキ"], @stand.history)
   end
 end
