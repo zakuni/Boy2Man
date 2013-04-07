@@ -26,5 +26,15 @@ class TestBoy2Man < MiniTest::Unit::TestCase
     assert_equal(["グー"], @stand.history)
     @stand.match("チョキ")
     assert_equal(["グー", "チョキ"], @stand.history)
+
+    @stand.history.push("something")
+    assert_equal(["グー", "チョキ"], @stand.history)
+  end
+
+  def test_reset
+    assert_respond_to @stand, :reset
+    @stand.match("チョキ")
+    @stand.reset
+    assert_equal([], @stand.history)
   end
 end

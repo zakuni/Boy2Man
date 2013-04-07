@@ -16,6 +16,8 @@ module Boy2Man
         puts stand.match(hand.chomp)
       when "history\n"
         puts stand.history
+      when "reset\n"
+        stand.reset
       else
         puts stand.select_hand
       end
@@ -32,6 +34,10 @@ module Boy2Man
     def history
       # retrun deep copy of history, to prevent history to be changed.
       Marshal.load(Marshal.dump(@history))
+    end
+
+    def reset
+      @history.clear
     end
     
     def match(hand)
