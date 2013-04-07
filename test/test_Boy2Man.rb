@@ -14,4 +14,11 @@ class TestBoy2Man < MiniTest::Unit::TestCase
       assert_includes ["グー", "チョキ", "パー"], @stand.select_hand
     end
   end
+
+  def test_history
+    assert_respond_to @stand, :history
+    assert_raises(NoMethodError) {
+      @stand.history = ['something']
+    }
+  end
 end

@@ -21,8 +21,15 @@ module Boy2Man
   end
   
   class Boy2Man
+    attr_reader :history
+    
     def initialize
-      @prospect = %w(グー チョキ パー)
+      @history = %w(グー チョキ パー)
+    end
+
+    def history
+      # retrun deep copy of history, to prevent history to be changed.
+      Marshal.load(Marshal.dump(@history))
     end
     
     def match(hand)
@@ -30,7 +37,7 @@ module Boy2Man
       when "グー", "チョキ", "パー"
         # 先に手を決めておかないと後出しになる
         selected = select_hand
-        @prospect.push hand
+        @history.push hand
         selected
       else
       end
@@ -46,7 +53,7 @@ module Boy2Man
 
     private
     def predict
-      @prospect.sample
+      @history.sample
     end
   end
 end
