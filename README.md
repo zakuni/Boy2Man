@@ -17,6 +17,17 @@ Or install it yourself as:
 
     $ gem install Boy2Man
 
+## Usage
+### As a CLI
+
+    $ Boy2Man
+    
+and then game will start.
+
+### As a Library
+
+see <http://rubydoc.info/gems/Boy2Man>
+
 ## Rule
 
 あと出しはその場で負け！  
