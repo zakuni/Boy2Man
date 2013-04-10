@@ -24,6 +24,8 @@ module Boy2Man
     end
   end
   
+  # @!attribute [r] history
+  #   @return [Array] the history of player's hand
   class Boy2Man
     attr_reader :history
     
@@ -36,10 +38,12 @@ module Boy2Man
       Marshal.load(Marshal.dump(@history))
     end
 
+    # @return [Array] resets history
     def reset
       @history.clear
     end
-    
+
+    # @return [String]
     def match(hand)
       case hand
       when "グー", "チョキ", "パー"
@@ -51,6 +55,7 @@ module Boy2Man
       end
     end
     
+    # @return [String]
     def select_hand
       case predict
       when "グー"   then "パー"
