@@ -8,15 +8,15 @@ module Boy2Man
     stand = Boy2Man.new
     loop do
       print '> '
-      hand = gets
+      hand = gets.chomp
       case hand
-      when "\n", "bye\n", "exit\n"
+      when "", "bye", "exit"
         exit
-      when "グー\n", "チョキ\n", "パー\n"
-        puts stand.match(hand.chomp)
-      when "history\n"
+      when "グー", "チョキ", "パー"
+        puts stand.match(hand)
+      when "history"
         puts stand.history
-      when "reset\n"
+      when "reset"
         stand.reset
       else
         puts stand.select_hand
