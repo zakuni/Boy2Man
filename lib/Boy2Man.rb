@@ -50,7 +50,14 @@ module Boy2Man
         # 先に手を決めておかないと後出しになる
         selected = select_hand
         @history.push hand
-        selected
+        case judge(hand, selected)
+        when hand
+          selected + "\nYou Win!"
+        when selected
+          selected + "\nYou Lose!"
+        else
+          selected + "\nDraw!"
+        end
       else
       end
     end
@@ -68,5 +75,35 @@ module Boy2Man
     def predict
       @history.empty? ? %w(グー チョキ パー).sample : @history.sample
     end
+
+    def judge(a, b)
+      case a
+      when "グー"
+        if b == "チョキ"
+          return a
+        elsif b == "パー"
+          return b
+        else
+          return nil
+        end
+      when "チョキ"
+        if b == "パー"
+          return a
+        elsif b == "グー"
+          return b
+        else
+          return nil
+        end
+      when "パー"
+        if b == "グー"
+          return a
+        elsif b == "チョキ"
+          return b
+        else
+          return nil
+        end
+      end
+    end
+
   end
 end
