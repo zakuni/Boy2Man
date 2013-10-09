@@ -34,6 +34,7 @@ class TestBoy2Man < MiniTest::Unit::TestCase
   def test_reset
     assert_respond_to @stand, :reset
     @stand.match("チョキ")
+    assert_equal(["チョキ"], @stand.history)
     @stand.reset
     assert_equal([], @stand.history)
   end
