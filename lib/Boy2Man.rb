@@ -3,7 +3,8 @@
 require "Boy2Man/version"
 
 module Boy2Man
-  
+  HANDS = ["グー", "チョキ", "パー"]
+
   def self.play
     stand = Boy2Man.new
     loop do
@@ -12,7 +13,7 @@ module Boy2Man
       case hand
       when "", "bye", "exit"
         exit
-      when "グー", "チョキ", "パー"
+      when *HANDS
         puts stand.match(hand)
       when "history"
         puts stand.history
@@ -46,7 +47,7 @@ module Boy2Man
     # @return [String]
     def match(hand)
       case hand
-      when "グー", "チョキ", "パー"
+      when *HANDS
         # 先に手を決めておかないと後出しになる
         selected = select_hand
         @history.push hand
