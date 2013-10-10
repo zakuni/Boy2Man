@@ -6,7 +6,7 @@ class TestBoy2Man < MiniTest::Unit::TestCase
   include Boy2Man
 
   def setup
-    @stand = Boy2Man.new
+    @stand = Janken.new
   end
 
   def test_select_hand
