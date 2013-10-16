@@ -29,11 +29,11 @@ module Boy2Man
         @history.push hand
         case judge(hand, selected)
         when hand
-          selected + "\nYou Win!"
+          "win"
         when selected
-          selected + "\nYou Lose!"
+          "lose"
         else
-          selected + "\nDraw!"
+          "draw"
         end
       else
       end
