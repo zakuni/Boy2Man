@@ -9,7 +9,13 @@ module Boy2Man
       when "", "bye", "exit"
         exit
       when *HANDS
-        puts stand.match(hand)
+        result = stand.match(hand)
+        if result == "win"
+          puts hand + "\nYou Win!"
+        elsif result == "lose"
+          puts hand + "\nYou Lose!"
+        else
+          puts hand + "\nDraw!"
       when "history"
         puts stand.history
       when "reset"
