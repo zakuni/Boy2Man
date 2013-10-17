@@ -21,7 +21,7 @@ module Boy2Man
     end
 
     # @return [String]
-    def match(hand)
+    def pon(hand)
       case hand
       when *HANDS
         # 先に手を決めておかないと後出しになる

@@ -19,9 +19,9 @@ class TestBoy2Man < MiniTest::Unit::TestCase
     }
 
     assert_equal([], @janken.history)
-    @janken.match("グー")
+    @janken.pon("グー")
     assert_equal(["グー"], @janken.history)
-    @janken.match("チョキ")
+    @janken.pon("チョキ")
     assert_equal(["グー", "チョキ"], @janken.history)
 
     @janken.history.push("something")
@@ -30,9 +30,13 @@ class TestBoy2Man < MiniTest::Unit::TestCase
 
   def test_reset
     assert_respond_to @janken, :reset
-    @janken.match("チョキ")
+    @janken.pon("チョキ")
     assert_equal(["チョキ"], @janken.history)
     @janken.reset
     assert_equal([], @janken.history)
+  end
+
+  def test_pon
+    assert_respond_to @janken, :pon
   end
 end
