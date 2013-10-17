@@ -16,6 +16,7 @@ module Boy2Man
           puts hand + "\nYou Lose!"
         else
           puts hand + "\nDraw!"
+        end
       when "history"
         puts stand.history
       when "reset"
