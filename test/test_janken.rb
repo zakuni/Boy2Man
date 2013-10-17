@@ -39,4 +39,8 @@ class TestBoy2Man < MiniTest::Unit::TestCase
   def test_pon
     assert_respond_to @janken, :pon
   end
+
+  def test_hoi
+    assert_respond_to @janken, :hoi
+  end
 end

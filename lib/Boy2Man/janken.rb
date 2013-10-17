@@ -39,6 +39,8 @@ module Boy2Man
       end
     end
     
+    alias :hoi :pon
+
     # @return [String]
     def select_hand
       case predict
