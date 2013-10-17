@@ -3,36 +3,36 @@ require 'test_helper'
 class TestBoy2Man < MiniTest::Unit::TestCase
   include Boy2Man
   def setup
-    @stand = Janken.new
+    @janken = Janken.new
   end
 
   def test_select_hand
     100.times do
-      assert_includes ["グー", "チョキ", "パー"], @stand.select_hand
+      assert_includes ["グー", "チョキ", "パー"], @janken.select_hand
     end
   end
 
   def test_history
-    assert_respond_to @stand, :history
+    assert_respond_to @janken, :history
     assert_raises(NoMethodError) {
-      @stand.history = ['something']
+      @janken.history = ['something']
     }
 
-    assert_equal([], @stand.history)
-    @stand.match("グー")
-    assert_equal(["グー"], @stand.history)
-    @stand.match("チョキ")
-    assert_equal(["グー", "チョキ"], @stand.history)
+    assert_equal([], @janken.history)
+    @janken.match("グー")
+    assert_equal(["グー"], @janken.history)
+    @janken.match("チョキ")
+    assert_equal(["グー", "チョキ"], @janken.history)
 
-    @stand.history.push("something")
-    assert_equal(["グー", "チョキ"], @stand.history)
+    @janken.history.push("something")
+    assert_equal(["グー", "チョキ"], @janken.history)
   end
 
   def test_reset
-    assert_respond_to @stand, :reset
-    @stand.match("チョキ")
-    assert_equal(["チョキ"], @stand.history)
-    @stand.reset
-    assert_equal([], @stand.history)
+    assert_respond_to @janken, :reset
+    @janken.match("チョキ")
+    assert_equal(["チョキ"], @janken.history)
+    @janken.reset
+    assert_equal([], @janken.history)
   end
 end
