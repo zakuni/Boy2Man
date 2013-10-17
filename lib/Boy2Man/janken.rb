@@ -2,7 +2,7 @@ module Boy2Man
   HANDS = ["グー", "チョキ", "パー"]
   
   # @!attribute [r] history
-  #   @return [Array] the history of player's hand
+  # @return [Array] the history of player's hand
   class Janken
     attr_reader :history
     
@@ -21,7 +21,7 @@ module Boy2Man
     end
 
     # @return [String]
-    def match(hand)
+    def pon(hand)
       case hand
       when *HANDS
         # 先に手を決めておかないと後出しになる
@@ -39,6 +39,8 @@ module Boy2Man
       end
     end
     
+    alias :hoi :pon
+
     # @return [String]
     def select_hand
       case predict
