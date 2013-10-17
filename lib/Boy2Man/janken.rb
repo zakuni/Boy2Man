@@ -2,7 +2,7 @@ module Boy2Man
   HANDS = ["グー", "チョキ", "パー"]
   
   # @!attribute [r] history
-  #   @return [Array] the history of player's hand
+  # @return [Array] the history of player's hand
   class Janken
     attr_reader :history
     
