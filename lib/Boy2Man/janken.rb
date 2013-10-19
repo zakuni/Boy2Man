@@ -40,6 +40,8 @@ module Boy2Man
     end
     
     alias :hoi :pon
+    alias :ぽん :pon
+    alias :ほい :hoi
 
     # @return [String]
     def select_hand
@@ -83,6 +85,5 @@ module Boy2Man
         end
       end
     end
-
   end
 end

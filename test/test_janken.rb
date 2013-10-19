@@ -4,6 +4,7 @@ class TestBoy2Man < MiniTest::Unit::TestCase
   include Boy2Man
   def setup
     @janken = Janken.new
+    @じゃんけん = Janken.new
   end
 
   def test_select_hand
@@ -42,5 +43,14 @@ class TestBoy2Man < MiniTest::Unit::TestCase
 
   def test_hoi
     assert_respond_to @janken, :hoi
+  end
+
+  def test_ぽん
+    assert_respond_to @じゃんけん, :ぽん
+  end
+
+
+  def test_ほい
+    assert_respond_to @じゃんけん, :ほい
   end
 end
