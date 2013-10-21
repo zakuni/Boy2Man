@@ -53,4 +53,24 @@ class TestBoy2Man < MiniTest::Unit::TestCase
   def test_ほい
     assert_respond_to @じゃんけん, :ほい
   end
+
+  def test_predict
+    100.times do
+      assert_includes ["グー", "チョキ", "パー"], @janken.send(:predict)
+    end
+  end
+
+  def test_judge
+    assert_nil @janken.send(:judge, "グー", "グー")
+    assert_equal "グー", @janken.send(:judge, "グー", "チョキ")
+    assert_equal "パー", @janken.send(:judge, "グー", "パー")
+
+    assert_equal "グー", @janken.send(:judge, "チョキ", "グー")
+    assert_nil @janken.send(:judge, "チョキ", "チョキ")
+    assert_equal "チョキ", @janken.send(:judge, "チョキ", "パー")
+
+    assert_equal "パー", @janken.send(:judge, "パー", "グー")
+    assert_equal "チョキ", @janken.send(:judge, "パー", "チョキ")
+    assert_nil @janken.send(:judge, "パー", "パー")
+  end
 end
