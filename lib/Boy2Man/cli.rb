@@ -1,7 +1,7 @@
 module Boy2Man
 
   def self.play
-    stand = Boy2Man.new
+    stand = Janken.new
     loop do
       print '> '
       hand = gets.chomp
