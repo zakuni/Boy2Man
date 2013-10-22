@@ -1,7 +1,7 @@
 module Boy2Man
 
   def self.play
-    stand = Janken.new
+    janken = Janken.new
     loop do
       print '> '
       hand = gets.chomp
@@ -9,20 +9,22 @@ module Boy2Man
       when "", "bye", "exit"
         exit
       when *HANDS
-        result = stand.match(hand)
-        if result == "win"
-          puts hand + "\nYou Win!"
-        elsif result == "lose"
-          puts hand + "\nYou Lose!"
+        puts opponent = janken.pon(hand)
+
+        winner = Boy2Man.judge(hand, opponent)
+        if winner == hand
+          puts "You Win!"
+        elsif winner == opponent
+          puts "You Lose!"
         else
-          puts hand + "\nDraw!"
+          puts "Draw!"
         end
       when "history"
-        puts stand.history
+        puts janken.history
       when "reset"
-        stand.reset
+        janken.reset
       else
-        puts stand.select_hand
+        puts janken.select_hand
       end
     end
   end
