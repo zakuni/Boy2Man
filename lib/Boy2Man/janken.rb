@@ -1,5 +1,34 @@
 module Boy2Man
   HANDS = ["グー", "チョキ", "パー"]
+
+  def self.judge(a, b)
+    case a
+    when "グー"
+      if b == "チョキ"
+        return a
+      elsif b == "パー"
+        return b
+      else
+        return nil
+      end
+    when "チョキ"
+      if b == "パー"
+        return a
+      elsif b == "グー"
+        return b
+      else
+        return nil
+      end
+    when "パー"
+      if b == "グー"
+        return a
+      elsif b == "チョキ"
+        return b
+      else
+        return nil
+      end
+    end
+  end
   
   # @!attribute [r] history
   # @return [Array] the history of player's hand
@@ -25,16 +54,13 @@ module Boy2Man
       case hand
       when *HANDS
         # 先に手を決めておかないと後出しになる
-        selected = select_hand
-        @history.push hand
-        case judge(hand, selected)
-        when hand
-          "win"
-        when selected
-          "lose"
-        else
-          "draw"
+        selected = case predict
+        when "グー"   then "パー"
+        when "チョキ" then "グー"
+        when "パー"   then "チョキ"
         end
+        @history.push hand
+        selected
       else
       end
     end
@@ -43,47 +69,10 @@ module Boy2Man
     alias :ぽん :pon
     alias :ほい :hoi
 
-    # @return [String]
-    def select_hand
-      case predict
-      when "グー"   then "パー"
-      when "チョキ" then "グー"
-      when "パー"   then "チョキ"
-      end
-    end
-
     private
     def predict
       @history.empty? ? %w(グー チョキ パー).sample : @history.sample
     end
 
-    def judge(a, b)
-      case a
-      when "グー"
-        if b == "チョキ"
-          return a
-        elsif b == "パー"
-          return b
-        else
-          return nil
-        end
-      when "チョキ"
-        if b == "パー"
-          return a
-        elsif b == "グー"
-          return b
-        else
-          return nil
-        end
-      when "パー"
-        if b == "グー"
-          return a
-        elsif b == "チョキ"
-          return b
-        else
-          return nil
-        end
-      end
-    end
   end
 end
