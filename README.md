@@ -25,6 +25,17 @@ Or install it yourself as:
 and then game will start.
 
 ### As a Library
+```ruby
+require 'Boy2Man'
+
+janken = Boy2Man::Janken.new
+janken.pon # => "グー or チョキ or パー"
+
+# you can use Japanese also
+じゃんけん = Boy2Man::Janken.new
+じゃんけん.ぽん
+じゃんけん.ほい
+```
 
 see <http://rubydoc.info/gems/Boy2Man>
 
