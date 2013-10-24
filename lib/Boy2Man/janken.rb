@@ -71,7 +71,18 @@ module Boy2Man
 
     private
     def predict
-      @history.empty? ? %w(グー チョキ パー).sample : @history.sample
+      if @history.length < 2
+        %w(グー チョキ パー).sample
+      else
+        possible_hands = Array.new
+        @history.each_with_index do |hand, i|
+          if hand == @history.last
+            possible_hands.push @history[i+1]
+          end
+        end
+        possible_hands.compact!
+        possible_hands.empty? ? %w(グー チョキ パー).sample : possible_hands.sample
+      end
     end
 
   end
