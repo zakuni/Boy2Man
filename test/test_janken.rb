@@ -69,5 +69,18 @@ class TestBoy2Man < MiniTest::Unit::TestCase
     100.times do
       assert_includes ["グー", "チョキ", "パー"], @janken.send(:predict)
     end
+    @janken.reset
+    @janken.pon("グー")
+    @janken.pon("グー")
+    assert_equal "パー", @janken.pon("グー")
+
+    @janken.reset
+    @janken.pon("グー")
+    @janken.pon("チョキ")
+    @janken.pon("パー")
+    @janken.pon("グー")
+    @janken.pon("チョキ")    
+    assert_equal "チョキ", @janken.pon("パー")
+
   end
 end
